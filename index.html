@@ -5,16 +5,22 @@
   <body>
     <script>
       function main() {
-        const images = document.getElementsByClassName('mwe-math-fallback-image-inline');
-        for (let i = 0; i < images.length; i++) {
-          const text = images[i].alt;
-          images[i].outerHTML = `\\(${text}\\)`;
+        let spans = document.querySelectorAll('span.mwe-math-element');
+        for (let i = 0; i < spans.length; i++) {
+          const text = spans[i].childNodes[1].alt;
+          spans[i].outerHTML = `\\(${text}\\)`;
         }
       }
-      document.getElementById("m").addEventListener("input", function() {main(); main(); main(); });
     </script>
+    <h1>Wikipedia -> MathJax converter</h1>
+    <p>Paste some wikipedia content with math into the box below and it will be converted into MathJax notation that you can paste into anki.</p>
     <div id="m" contenteditable="true" onpaste="main()">
-      PASTE IT HERE
+      <b>PASTE IT HERE!</b><br/>
+      <b>PASTE IT HERE</b><br/>
+      <b>PASTE IT HERE</b><br/>
+      <b>PASTE IT HERE!</b><br/>
     </div>
+    <button onclick="main()">CONVERT</button>
+
   </body>
 </html>
