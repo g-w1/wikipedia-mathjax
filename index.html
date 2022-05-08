@@ -3,7 +3,16 @@
     <title>Wikipedia -> MathJax</title>
   </head>
   <body>
-    <div contenteditable="true">
+    <script>
+      function main() {
+        const images = document.getElementsByClassName('mwe-math-fallback-image-inline');
+        for (let i = 0; i < images.length; i++) {
+          const text = images[i].alt;
+          images[i].outerHTML = `\\(${text}\\)`;
+        }
+      }
+    </script>
+    <div id="m" contenteditable="true" onpaste="main()">
       PASTE IT HERE
     </div>
   </body>
