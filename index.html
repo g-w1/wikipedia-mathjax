@@ -7,8 +7,12 @@
       function main() {
         let spans = document.querySelectorAll('.mwe-math-element');
         for (let i = 0; i < spans.length; i++) {
-          const text = spans[i].childNodes[1].alt;
-          spans[i].outerHTML = `\\(${text}\\)`;
+          for (let j = 0; j < spans[i].childNodes.length; j++) {
+          	  if (spans[i].childNodes[j].nodeName == "IMG") {
+                  const text = spans[i].childNodes[j].alt;
+                  spans[i].outerHTML = `\\(${text}\\)`;
+              }
+          }
         }
       }
     </script>
