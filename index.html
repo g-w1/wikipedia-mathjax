@@ -5,7 +5,7 @@
   <body>
     <script>
       function main() {
-        let spans = document.querySelectorAll('span.mwe-math-element');
+        let spans = document.querySelectorAll('.mwe-math-element');
         for (let i = 0; i < spans.length; i++) {
           const text = spans[i].childNodes[1].alt;
           spans[i].outerHTML = `\\(${text}\\)`;
